@@ -1,0 +1,47 @@
+{
+  "name": "sample-project-template",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --ignore-path=.gitignore",
+    "build": "webpack",
+    "package": "serverless package --package dist/serverless",
+    "validate": "aws cloudformation validate-template --template-body file://dist/serverless/cloudformation-template-update-stack.json",
+    "deploy": "serverless deploy -p dist/serverless/",
+    "clean": "rm -rf dist/"
+  },
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "devDependencies": {
+    "serverless": "^1.39.1",
+    "aws-sdk": "^2.413.0",
+    "eslint": "^5.15.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-node": "^8.0.1",
+    "pre-commit": "^1.2.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "aws4": "^1.8.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
+  },
+  "pre-commit": [
+    "clean",
+    "lint",
+    "build",
+    "package",
+    "validate"
+  ],
+  "license": "UNLINCESED",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

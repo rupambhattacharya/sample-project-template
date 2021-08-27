@@ -1,0 +1,12 @@
+extends:
+  - eslint:recommended
+  - plugin:node/recommended
+  - airbnb-base
+env:
+  node: true
+  es6: true
+  browser: true
+plugins:
+  - node
+rules:
+  no-console: off
